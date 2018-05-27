@@ -51,11 +51,11 @@ void readFile(std::string filename, int NumLine = 100 ){
 
 void writeCommandsOutputTo(std::string command, std::ofstream& outfile){
   FILE *pp;
-  command += " 2>&1" ; 
   writeLine("---------------------------------------------------------\n", outfile); 
   writeLine("Executing command: ", outfile); 
   writeLine(command, outfile);
   writeLine("\n---------------------------------------------------------\n", outfile); 
+  command += " 2>&1" ; 
   pp = popen(command.c_str(), "r");
   if (pp != NULL) {
     while (1) {
